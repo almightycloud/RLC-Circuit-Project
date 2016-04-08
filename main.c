@@ -9,6 +9,8 @@
 #define INPUT 1
 #define OUTPUT 0
 #define NUM_POINTS 100
+#define TESTCHANGE 99999
+#define testchange2 99999
 
 // Structure used for Array includes all needed user entered values.
 typedef struct Values
