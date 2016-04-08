@@ -1,0 +1,106 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#define BINFILE "RLC_Circuit.bin" // Constant for Bin file
+#define N 5 // **NOTE** Change Design to include N as defined number of elements for Array
+
+// Structure used for Array includes all needed user entered values.
+typedef struct Values
+{
+
+    double L, C, Td, Pc;
+
+} RLCVALS;
+
+// Prototype functions.
+void fileIO(RLCVALS []);
+int fetchFile();
+void binWrite(RLCVALS valArr[], FILE *fname);
+void binRead(RLCVALS valArray[], FILE *fname);
+void printRLCValues(RLCVALS valArray[], int indexNum);
+
+int main()
+{
+
+    RLCVALS RLCArr[N];
+
+    fileIO(RLCArr);
+
+    //printRLCValues(RLCArr, N);
+
+    return 0;
+}
+
+void fileIO(RLCVALS rlcArr[])
+{
+    /**
+
+    FILE *fp;
+    RLCVALS *arrP = rlcArr;
+
+    fp = fopen(BINFILE, "rb+");
+
+    binWrite(rlcArr, fp);
+
+    fseek(fp, 0, SEEK_SET);
+
+    binRead(rlcArr, fp);
+
+    fclose(fp);
+
+    **/
+
+    FILE *fp;
+
+    printf("\nLoading/Creating File...\n");
+
+    fp = fopen(BINFILE, "rb+");
+
+    fseek(fp, 0, SEEK_SET);
+
+    binRead(rlcArr, fp);
+
+    printf("Done.\n");
+
+
+    printRLCValues(rlcArr, N);
+
+    printf("\nOverwrite Or Select Values?\n");
+    printf("---------------------------------\n");
+    printf("1. Overwrite\n");
+    printf("2. Select Values\n");
+
+}
+
+void binWrite(RLCVALS arrayRef[], FILE *fName)
+{
+    int a;
+    for (a = 0; a < N; a++)
+    {
+        fwrite(&arrayRef[a], sizeof(arrayRef[a]), 1, fName);
+    }
+}
+
+void binRead(RLCVALS arrayRef[], FILE *fName)
+{
+    int b;
+    for (b = 0; b < N; b++)
+    {
+        fread(&arrayRef[b], sizeof(arrayRef[b]), 1, fName);
+    }
+}
+
+void printRLCValues(RLCVALS arrayRef[], int INDEX)
+{
+    printf("\nRLC Circuit Values\n");
+    printf("--------------------------------\n");
+
+    int a;
+    int num = 1;
+    for (a = 0; a < INDEX; a++)
+    {
+        printf("%d. C = %0.2f || L = %0.2f || Td = %0.2f || Pc = %0.2f\n", num ,arrayRef[a].C, arrayRef[a].L, arrayRef[a].Td, arrayRef[a].Pc);
+        num ++;
+    }
+}

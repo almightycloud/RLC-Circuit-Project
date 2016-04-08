@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1459722570 source:c:\users\adrian lathey\google drive\project rlc circuit\codeblock project\rlc circuit\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1460051863 source:c:\users\almig_000\google drive\project rlc circuit\codeblock project\rlc circuit\main.c
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+
+1460146894 source:c:\users\almig_000\documents\codeblock projects\rlc circuit\main.c
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<math.h>
+
