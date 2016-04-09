@@ -2,15 +2,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <math.h>
-
+#include <gng1106plplot.h>
 
 #define BINFILE "RLC_Circuit.bin" // Constant for Bin file
 #define N 5 // **NOTE** Change Design to include N as defined number of elements for Array
 #define INPUT 1
 #define OUTPUT 0
 #define NUM_POINTS 100
-#define TESTCHANGE 99999
-#define testchange2 99999
 
 // Structure used for Array includes all needed user entered values.
 typedef struct Values
@@ -31,6 +29,7 @@ int fileFetch(const char *);
 void createNewRLCVALSFile(RLCVALS [],const char *);
 void fillArray(RLCVALS [], double[], double[], int);
 double getR(double, double, double, double, double);
+void plotInfo(double *, double *);
 
 int main()
 {
@@ -352,4 +351,9 @@ void fillArray(RLCVALS arrRef[], double xArr[], double yArr[], int iNum)
     {
         yArr[ix] = getR(arrRef[iNum].L, arrRef[iNum].C,arrRef[iNum].Td, arrRef[iNum].Pc, xArr[ix]);
     }
+}
+
+void plotInfo(double *xArrPtr, double *yArrPtr)
+{
+
 }
