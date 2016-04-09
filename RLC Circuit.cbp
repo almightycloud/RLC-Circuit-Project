@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="C:/Users/Adrian Lathey/Documents/GitHub/RLC-Circuit-Project" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -31,6 +32,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="gng1106plplot.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
