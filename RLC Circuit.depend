@@ -14,11 +14,15 @@
 	<unistd.h>
 	<math.h>
 
-1460154792 source:c:\users\adrian lathey\documents\github\rlc-circuit-project\main.c
+1460182267 source:c:\users\adrian lathey\documents\github\rlc-circuit-project\main.c
 	<stdio.h>
 	<stdlib.h>
 	<unistd.h>
 	<math.h>
+	<gng1106plplot.h>
+	<plplot.h>
 
 1460153626 source:c:\users\adrian lathey\documents\github\rlc-circuit-project\gng1106plplot.h
+
+1460179566 c:\users\adrian lathey\documents\github\rlc-circuit-project\gng1106plplot.h
 

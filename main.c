@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <math.h>
 #include <gng1106plplot.h>
+#include <plplot.h>
 
 #define BINFILE "RLC_Circuit.bin" // Constant for Bin file
 #define N 5 // **NOTE** Change Design to include N as defined number of elements for Array
@@ -54,6 +55,8 @@ int main()
     {
         printf("%d.xArr: %f, yArr: %f\n", a+1 ,xArr[a], yArr[a]);
     }
+
+    plotInfo(xArr, yArr);
 
 
 
@@ -355,5 +358,23 @@ void fillArray(RLCVALS arrRef[], double xArr[], double yArr[], int iNum)
 
 void plotInfo(double *xArrPtr, double *yArrPtr)
 {
+    plsdev("wingcc");
+    plscolbg(255,255,255);
+    plscol0(1,0,0,0);
 
+    plinit();
+
+    plwidth(2);
+
+    plenv(*xArrPtr, xArrPtr[NUM_POINTS-1], *yArrPtr, 0.5*(yArrPtr[NUM_POINTS-1]), 0, 2);
+
+    plwidth(3);
+    plcol0(GREEN);
+    pllab("X", "Y", "Graph");
+
+    plwidth(2);
+    plcol0(BLUE);
+    plline(NUM_POINTS, xArrPtr, yArrPtr);
+
+    plend();
 }
